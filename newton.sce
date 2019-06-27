@@ -6,14 +6,16 @@ function output = newton(f, df, x, max_iter, tol1, tol2)
         x_anterior = x
         x = x - f(x)/df(x)
 
-        if (abs(f(x)) < tol1 | abs((x - x_anterior) / x) < tol2) then
+        if (abs(f(x)) < tol1 | abs((x - x_anterior)/x) < tol2) then
             output = x
+            //disp(i,"Iterações: ")
+            disp(output,"Achei f(x) = 0 em x = ")
             return
         end
     end
 
     output = x
-    disp("Não achei f(x) = 0")
+    disp(output,"Não achei f(x) = 0, mais perto foi x = ")
     return
 
 endfunction
@@ -26,14 +28,16 @@ function output = newton2(f, x, max_iter, tol1, tol2)
         x_anterior = x
         x = x - f(x)/numderivative(f, x)
 
-        if (abs(f(x)) < tol1 | abs((x - x_anterior) / x) < tol2) then
+        if (abs(f(x)) < tol1 | abs((x - x_anterior)/x) < tol2) then
             output = x
+            //disp(i,"Iterações: ")
+            disp(output,"Achei f(x) = 0 em x = ")
             return
         end
     end
 
     output = x
-    disp("Não achei f(x) = 0")
+    disp(output,"Não achei f(x) = 0, mais perto foi x = ")
     return
 
 endfunction
